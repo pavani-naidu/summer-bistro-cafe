@@ -360,11 +360,13 @@ export default function MenuSection({ onOpenReservation }: MenuSectionProps) {
                       delay: (index % 4) * 0.1,
                       layout: { type: "spring", stiffness: 200, damping: 25 }
                     }}
-                    className="relative flex flex-col justify-between overflow-hidden rounded-xl border bg-card-surface/75 border-gold/10 shadow-lg cursor-default min-h-[170px]"
+                    className="card-3d relative flex flex-col justify-between overflow-hidden rounded-xl border bg-card-surface/75 border-gold/10 shadow-lg cursor-default min-h-[170px]"
                     style={{
                       transition: "all 0.4s cubic-bezier(0.25, 1, 0.5, 1)"
                     }}
                   >
+                    {/* 3D Glare Effect */}
+                    <div className="card-glare" />
                     <div className="p-6 flex flex-col justify-between h-full w-full relative z-10 space-y-4">
                       <div className="space-y-2">
                         {/* Title & Price Header */}
@@ -458,7 +460,7 @@ export default function MenuSection({ onOpenReservation }: MenuSectionProps) {
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
               transition={{ duration: 0.8, delay: 0.1 }}
-              className="bg-gradient-to-br from-[#16120E] to-[#0B0806] border border-amber-500/10 rounded-2xl p-6 shadow-[0_20px_50px_rgba(0,0,0,0.5)] hover:shadow-[0_20px_50px_rgba(245,158,11,0.05)] hover:-translate-y-1 transition-all duration-300 flex flex-col items-center text-center space-y-4 group"
+              className="card-3d bg-gradient-to-br from-[#16120E] to-[#0B0806] border border-amber-500/10 rounded-2xl p-6 shadow-[0_20px_50px_rgba(0,0,0,0.5)] hover:shadow-[0_20px_50px_rgba(245,158,11,0.05)] hover:-translate-y-1 transition-all duration-300 flex flex-col items-center text-center space-y-4 group"
             >
               <div className="w-10 h-10 rounded-full bg-amber-500/10 border border-amber-500/20 flex items-center justify-center mb-4 font-mono text-xs text-amber-500 group-hover:scale-110 transition-transform duration-300">
                 24H
@@ -477,7 +479,7 @@ export default function MenuSection({ onOpenReservation }: MenuSectionProps) {
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
               transition={{ duration: 0.8, delay: 0.2 }}
-              className="bg-gradient-to-br from-[#16120E] to-[#0B0806] border border-amber-500/10 rounded-2xl p-6 shadow-[0_20px_50px_rgba(0,0,0,0.5)] hover:shadow-[0_20px_50px_rgba(245,158,11,0.05)] hover:-translate-y-1 transition-all duration-300 flex flex-col items-center text-center space-y-4 group"
+              className="card-3d bg-gradient-to-br from-[#16120E] to-[#0B0806] border border-amber-500/10 rounded-2xl p-6 shadow-[0_20px_50px_rgba(0,0,0,0.5)] hover:shadow-[0_20px_50px_rgba(245,158,11,0.05)] hover:-translate-y-1 transition-all duration-300 flex flex-col items-center text-center space-y-4 group"
             >
               <div className="w-10 h-10 rounded-full bg-amber-500/10 border border-amber-500/20 flex items-center justify-center mb-4 font-mono text-xs text-amber-500 group-hover:scale-110 transition-transform duration-300">
                 HUB
@@ -496,7 +498,7 @@ export default function MenuSection({ onOpenReservation }: MenuSectionProps) {
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
               transition={{ duration: 0.8, delay: 0.3 }}
-              className="bg-gradient-to-br from-[#16120E] to-[#0B0806] border border-amber-500/10 rounded-2xl p-6 shadow-[0_20px_50px_rgba(0,0,0,0.5)] hover:shadow-[0_20px_50px_rgba(245,158,11,0.05)] hover:-translate-y-1 transition-all duration-300 flex flex-col items-center text-center space-y-4 group"
+              className="card-3d bg-gradient-to-br from-[#16120E] to-[#0B0806] border border-amber-500/10 rounded-2xl p-6 shadow-[0_20px_50px_rgba(0,0,0,0.5)] hover:shadow-[0_20px_50px_rgba(245,158,11,0.05)] hover:-translate-y-1 transition-all duration-300 flex flex-col items-center text-center space-y-4 group"
             >
               <div className="w-10 h-10 rounded-full bg-amber-500/10 border border-amber-500/20 flex items-center justify-center mb-4 font-mono text-xs text-amber-500 group-hover:scale-110 transition-transform duration-300">
                 VIP

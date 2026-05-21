@@ -1,9 +1,20 @@
+import { useState } from "react";
 import { motion } from "motion/react";
 import cafeEntranceImg from "../assets/images/bistro_entrance_highres.png";
 import coffeeImgNew from "../assets/images/coffee_highres.png";
 import gardenImgNew from "../assets/images/garden_highres.png";
  
 export default function AtmosphereSection() {
+  const [cardTilt, setCardTilt] = useState<{ idx: number; x: number; y: number } | null>(null);
+
+  const handleCardMouseMove = (e: React.MouseEvent<HTMLDivElement>, idx: number) => {
+    const rect = e.currentTarget.getBoundingClientRect();
+    const x = (e.clientY - rect.top) / rect.height;
+    const y = (e.clientX - rect.left) / rect.width;
+    setCardTilt({ idx, x: (x - 0.5) * -12, y: (y - 0.5) * 12 });
+  };
+  const handleCardMouseLeave = () => setCardTilt(null);
+
   const cardsData = [
     {
       label: "SANCTUARY HOURS",
@@ -80,8 +91,19 @@ export default function AtmosphereSection() {
                 viewport={{ once: true }}
                 transition={{ duration: 0.8, delay: index * 0.15, ease: [0.16, 1, 0.3, 1] }}
                 onClick={() => handleCardClick(index)}
-                className="group relative flex flex-col justify-between rounded-3xl bg-[#1c1410]/50 border border-amber-900/20 hover:border-amber-400/35 hover:bg-[#1c1410]/75 shadow-lg hover:shadow-[0_12px_40px_rgba(216,161,93,0.12)] transition-all duration-500 cursor-pointer hover:-translate-y-2 p-5"
+                onMouseMove={(e) => handleCardMouseMove(e, index)}
+                onMouseLeave={handleCardMouseLeave}
+                className="group relative flex flex-col justify-between rounded-3xl bg-[#1c1410]/50 border border-amber-900/20 hover:border-amber-400/35 hover:bg-[#1c1410]/75 shadow-lg hover:shadow-[0_12px_40px_rgba(216,161,93,0.12)] transition-all duration-500 cursor-pointer hover:-translate-y-2 p-5 overflow-hidden"
+                style={{ perspective: '800px' }}
               >
+                {/* 3D Tilt Inner Wrapper */}
+                <div style={{
+                  transform: cardTilt?.idx === index
+                    ? `rotateX(${cardTilt.x}deg) rotateY(${cardTilt.y}deg) translateZ(10px)`
+                    : 'rotateX(0deg) rotateY(0deg) translateZ(0px)',
+                  transition: 'transform 0.4s cubic-bezier(0.03, 0.98, 0.52, 0.99)',
+                  transformStyle: 'preserve-3d',
+                }}>
                 {/* Image Layout */}
                 <div className="relative w-full h-48 md:h-64 mb-4 overflow-hidden rounded-2xl shadow-md">
                   <img
@@ -113,6 +135,15 @@ export default function AtmosphereSection() {
                   </div>
 
                 </div>
+                </div>
+
+                {/* 3D Glare Overlay */}
+                <div className="card-glare" style={{
+                  opacity: cardTilt?.idx === index ? 1 : 0,
+                  background: cardTilt?.idx === index
+                    ? `radial-gradient(circle at ${((cardTilt.y / 12) + 0.5) * 100}% ${((cardTilt.x / -12) + 0.5) * 100}%, rgba(255,255,255,0.1) 0%, transparent 60%)`
+                    : undefined,
+                }} />
               </motion.div>
             );
           })}

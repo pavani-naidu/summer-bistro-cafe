@@ -8,9 +8,30 @@ interface HeroSectionProps {
   onOpenReserve: () => void;
 }
 
+// Pre-generate particles so they don't re-randomize on every render
+const PARTICLES = Array.from({ length: 15 }).map((_, i) => ({
+  id: i,
+  size: 2 + (i * 7 % 5),
+  left: 10 + (i * 13 % 80),
+  bottom: 5 + (i * 7 % 15),
+  duration: 4 + (i * 3 % 5),
+  delay: (i * 1.1) % 5,
+  driftX: -30 + (i * 11 % 60),
+  opacity: 0.15 + (i * 0.03 % 0.3),
+}));
+
 export default function HeroSection({ onOpenMenu, onOpenReserve }: HeroSectionProps) {
   const [currentTime, setCurrentTime] = useState<string>("");
   const [currentPeriod, setCurrentPeriod] = useState<string>("AM");
+  const [tilt, setTilt] = useState({ x: 0, y: 0 });
+
+  const handleMouseMove = (e: React.MouseEvent<HTMLDivElement>) => {
+    const rect = e.currentTarget.getBoundingClientRect();
+    const x = (e.clientX - rect.left) / rect.width;
+    const y = (e.clientY - rect.top) / rect.height;
+    setTilt({ x: (y - 0.5) * -20, y: (x - 0.5) * 20 });
+  };
+  const handleMouseLeave = () => setTilt({ x: 0, y: 0 });
 
   useEffect(() => {
     const updateTime = () => {
@@ -45,8 +66,25 @@ export default function HeroSection({ onOpenMenu, onOpenReserve }: HeroSectionPr
       <div className="absolute inset-0 opacity-[0.03] pointer-events-none mix-blend-overlay bg-[radial-gradient(#fff_1px,transparent_1px)] [background-size:24px_24px]" />
       
       {/* Abstract warm golden glowing spheres creating modern depth */}
-      <div className="absolute w-[500px] h-[500px] bg-gradient-to-tr from-amber-500/5 to-transparent rounded-full -top-[120px] -left-[120px] filter blur-[120px] pointer-events-none" />
-      <div className="absolute w-[600px] h-[600px] bg-gradient-to-bl from-amber-600/5 to-transparent rounded-full -right-[150px] -bottom-[150px] filter blur-[140px] pointer-events-none" />
+      <div className="absolute w-[500px] h-[500px] bg-gradient-to-tr from-amber-500/5 to-transparent rounded-full -top-[120px] -left-[120px] filter blur-[120px] pointer-events-none orb-pulse" />
+      <div className="absolute w-[600px] h-[600px] bg-gradient-to-bl from-amber-600/5 to-transparent rounded-full -right-[150px] -bottom-[150px] filter blur-[140px] pointer-events-none orb-pulse" style={{ animationDelay: '3s' }} />
+
+      {/* Floating Coffee Steam Particles */}
+      {PARTICLES.map((p) => (
+        <div
+          key={`particle-${p.id}`}
+          className="steam-particle"
+          style={{
+            width: p.size,
+            height: p.size,
+            left: `${p.left}%`,
+            bottom: `${p.bottom}%`,
+            background: `radial-gradient(circle, rgba(216, 161, 93, ${p.opacity}) 0%, transparent 70%)`,
+            animation: `float-up ${p.duration}s ease-out ${p.delay}s infinite`,
+            '--drift-x': `${p.driftX}px`,
+          } as React.CSSProperties}
+        />
+      ))}
 
       {/* CORE SPLIT-SCREEN VIEWPORT MAIN HERO */}
       <div className="relative w-full max-w-7xl mx-auto px-6 md:px-12 my-auto py-12 md:py-20 grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-8 items-center z-10">
@@ -116,10 +154,11 @@ export default function HeroSection({ onOpenMenu, onOpenReserve }: HeroSectionPr
 
           {/* Crystalline High-Conversion Headline */}
           <motion.div
-            initial={{ opacity: 0, y: 30 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 1.4, ease: [0.16, 1, 0.3, 1] }}
+            initial={{ opacity: 0, y: 30, rotateY: -8, z: -60, filter: 'blur(3px)' }}
+            animate={{ opacity: 1, y: 0, rotateY: 0, z: 0, filter: 'blur(0px)' }}
+            transition={{ duration: 1.6, ease: [0.16, 1, 0.3, 1] }}
             className="space-y-4"
+            style={{ perspective: '1000px' }}
           >
             <h1 className="font-serif italic font-light text-4xl sm:text-5xl md:text-6.5xl lg:text-7xl text-[#f5efe6] tracking-tight leading-[1.08]">
               Specialty Coffee, <br />
@@ -171,13 +210,27 @@ export default function HeroSection({ onOpenMenu, onOpenReserve }: HeroSectionPr
         </div>
 
         {/* RIGHT COLUMN: 3D Perspective Stacked Luxury Cards */}
-        <div className="lg:col-span-5 relative flex items-center justify-center h-[380px] sm:h-[460px] w-full pt-10 lg:pt-0">
+        <div
+          className="lg:col-span-5 relative flex items-center justify-center h-[380px] sm:h-[460px] w-full pt-10 lg:pt-0"
+          style={{ perspective: '1000px' }}
+          onMouseMove={handleMouseMove}
+          onMouseLeave={handleMouseLeave}
+        >
           
           <motion.div
-            initial={{ opacity: 0, scale: 0.92 }}
-            animate={{ opacity: 1, scale: 1 }}
-            transition={{ duration: 1.6, ease: [0.16, 1, 0.3, 1] }}
+            initial={{ opacity: 0, scale: 0.92, rotateY: 12, z: -80 }}
+            animate={{
+              opacity: 1, scale: 1,
+              rotateX: tilt.x, rotateY: tilt.y,
+              z: 0,
+            }}
+            transition={{
+              duration: 1.6, ease: [0.16, 1, 0.3, 1],
+              rotateX: { type: 'spring', stiffness: 150, damping: 15 },
+              rotateY: { type: 'spring', stiffness: 150, damping: 15 },
+            }}
             className="relative w-full max-w-[420px] h-full"
+            style={{ transformStyle: 'preserve-3d' }}
           >
             
             {/* Card 1 (Bottom Sourdough Pizza Card) */}

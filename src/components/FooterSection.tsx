@@ -17,8 +17,8 @@ export default function FooterSection() {
     >
       {/* Background ambient effects */}
       <div className="absolute inset-x-0 bottom-0 h-80 bg-gradient-to-t from-amber-500/[0.03] to-transparent pointer-events-none" />
-      <div className="absolute top-0 left-1/4 w-96 h-96 bg-radial-gradient bg-[radial-gradient(circle,rgba(216,161,93,0.04)_0%,transparent_70%)] blur-3xl pointer-events-none" />
-      <div className="absolute bottom-20 right-1/4 w-72 h-72 bg-[radial-gradient(circle,rgba(198,122,57,0.03)_0%,transparent_70%)] blur-3xl pointer-events-none" />
+      <div className="absolute top-0 left-1/4 w-96 h-96 bg-radial-gradient bg-[radial-gradient(circle,rgba(216,161,93,0.04)_0%,transparent_70%)] blur-3xl pointer-events-none orb-pulse" />
+      <div className="absolute bottom-20 right-1/4 w-72 h-72 bg-[radial-gradient(circle,rgba(198,122,57,0.03)_0%,transparent_70%)] blur-3xl pointer-events-none orb-pulse" style={{ animationDelay: '3s' }} />
 
       <div className="max-w-7xl mx-auto w-full relative z-10">
 

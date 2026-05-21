@@ -9,6 +9,15 @@ interface StickyDockProps {
 
 export default function StickyDock({ onOpenMenu, onOpenReserve }: StickyDockProps) {
   const [hoveredIdx, setHoveredIdx] = useState<number | null>(null);
+  const [dockTilt, setDockTilt] = useState({ x: 0, y: 0 });
+
+  const handleDockMouseMove = (e: React.MouseEvent<HTMLDivElement>) => {
+    const rect = e.currentTarget.getBoundingClientRect();
+    const x = (e.clientX - rect.left) / rect.width;
+    const y = (e.clientY - rect.top) / rect.height;
+    setDockTilt({ x: (y - 0.5) * -6, y: (x - 0.5) * 8 });
+  };
+  const handleDockMouseLeave = () => setDockTilt({ x: 0, y: 0 });
 
   const items = [
     {
@@ -33,11 +42,19 @@ export default function StickyDock({ onOpenMenu, onOpenReserve }: StickyDockProp
 
   return (
     <div 
-      className="fixed bottom-6 inset-x-0 mx-auto w-[90%] max-w-sm h-16 z-40 select-none pb-safe pointer-events-auto"
+      className="fixed bottom-6 inset-x-0 mx-auto w-[90%] max-w-sm h-16 z-40 select-none pb-safe pointer-events-auto levitate"
       id="floating-navigation-dock"
     >
       {/* Dock glassmorphic body layout with a subtle ambient gold shadow and warm gradient background */}
-      <div className="w-full h-full bg-gradient-to-b from-[#251b17]/95 to-[#1c1411]/98 backdrop-blur-xl border border-gold/20 rounded-2xl flex items-center justify-between px-2 relative shadow-[0_12px_40px_rgba(0,0,0,0.85),_0_0_20px_rgba(216,161,93,0.12)]">
+      <div
+        className="w-full h-full bg-gradient-to-b from-[#251b17]/95 to-[#1c1411]/98 backdrop-blur-xl border border-gold/20 rounded-2xl flex items-center justify-between px-2 relative levitate-shadow"
+        onMouseMove={handleDockMouseMove}
+        onMouseLeave={handleDockMouseLeave}
+        style={{
+          transform: `perspective(600px) rotateX(${dockTilt.x}deg) rotateY(${dockTilt.y}deg)`,
+          transition: 'transform 0.3s cubic-bezier(0.03, 0.98, 0.52, 0.99)',
+        }}
+      >
         
         {/* Sleek pulsing status tag inside the dock for a clean premium vibe */}
         <div className="absolute right-4 -top-2 flex items-center gap-1 px-2.5 py-0.5 rounded-full bg-[#181310]/95 border border-gold/30 shadow-[0_4px_12px_rgba(0,0,0,0.5)] select-none pointer-events-none">
@@ -58,14 +75,15 @@ export default function StickyDock({ onOpenMenu, onOpenReserve }: StickyDockProp
                 animate={
                   isHovered
                     ? idx === 0
-                      ? { rotate: [0, -10, 10, -5, 5, 0], scale: 1.18 }
+                      ? { rotate: [0, -10, 10, -5, 5, 0], scale: 1.18, z: 15 }
                       : idx === 1
-                      ? { y: [0, -5, 2, -2, 0], scale: 1.18 }
-                      : { y: [0, -6, 0], scale: 1.18 }
-                    : { rotate: 0, y: 0, scale: 1 }
+                      ? { y: [0, -5, 2, -2, 0], scale: 1.18, z: 15 }
+                      : { y: [0, -6, 0], scale: 1.18, z: 15 }
+                    : { rotate: 0, y: 0, scale: 1, z: 0 }
                 }
                 transition={{ duration: 0.5, ease: "easeInOut" }}
                 className="mb-1 text-gold/80 group-hover:text-gold transition-colors duration-300"
+                style={{ transformStyle: 'preserve-3d' }}
               >
                 <Icon className="w-[18px] h-[18px] stroke-[1.8]" />
               </motion.div>
