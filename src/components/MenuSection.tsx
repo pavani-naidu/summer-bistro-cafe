@@ -360,10 +360,7 @@ export default function MenuSection({ onOpenReservation }: MenuSectionProps) {
                       delay: (index % 4) * 0.1,
                       layout: { type: "spring", stiffness: 200, damping: 25 }
                     }}
-                    onClick={() => {
-                      setActiveDetailItem(item);
-                    }}
-                    className="group relative flex flex-col justify-between overflow-hidden rounded-xl border bg-card-surface/75 border-gold/10 hover:border-gold/30 hover:bg-card-surface/90 shadow-lg hover:shadow-[0_15px_30px_rgba(216,161,93,0.05)] hover:-translate-y-0.5 transition-all duration-300 cursor-pointer min-h-[170px]"
+                    className="group relative flex flex-col justify-between overflow-hidden rounded-xl border bg-card-surface/75 border-gold/10 hover:border-gold/30 hover:bg-card-surface/90 shadow-lg hover:shadow-[0_15px_30px_rgba(216,161,93,0.05)] hover:-translate-y-0.5 transition-all duration-300 cursor-default min-h-[170px]"
                     style={{
                       transition: "all 0.4s cubic-bezier(0.25, 1, 0.5, 1)"
                     }}
@@ -1053,11 +1050,7 @@ export default function MenuSection({ onOpenReservation }: MenuSectionProps) {
                       {menuItems.filter(item => item.category === "Breakfast").map(item => (
                         <div 
                           key={item.name} 
-                          className="group/leaf cursor-pointer p-1 rounded hover:bg-[#eae3d5]/30 transition-all"
-                          onClick={() => {
-                            setActiveDetailItem(item);
-                            setShowFullPhysicalMenu(false);
-                          }}
+                          className="group/leaf cursor-default p-1 rounded"
                         >
                           <div className="flex justify-between items-end font-serif text-base text-[#2c221a] font-medium">
                             <span className="group-hover/leaf:text-[#d48d3b] transition-colors">{item.name}</span>
@@ -1082,11 +1075,7 @@ export default function MenuSection({ onOpenReservation }: MenuSectionProps) {
                       {menuItems.filter(item => item.category === "Soup").map(item => (
                         <div 
                           key={item.name} 
-                          className="group/leaf cursor-pointer p-1 rounded hover:bg-[#eae3d5]/30 transition-all"
-                          onClick={() => {
-                            setActiveDetailItem(item);
-                            setShowFullPhysicalMenu(false);
-                          }}
+                          className="group/leaf cursor-default p-1 rounded"
                         >
                           <div className="flex justify-between items-end font-serif text-base text-[#2c221a] font-medium">
                             <span className="group-hover/leaf:text-[#d48d3b] transition-colors">{item.name}</span>
@@ -1111,11 +1100,7 @@ export default function MenuSection({ onOpenReservation }: MenuSectionProps) {
                       {menuItems.filter(item => item.category === "Salad").map(item => (
                         <div 
                           key={item.name} 
-                          className="group/leaf cursor-pointer p-1 rounded hover:bg-[#eae3d5]/30 transition-all"
-                          onClick={() => {
-                            setActiveDetailItem(item);
-                            setShowFullPhysicalMenu(false);
-                          }}
+                          className="group/leaf cursor-default p-1 rounded"
                         >
                           <div className="flex justify-between items-end font-serif text-base text-[#2c221a] font-medium">
                             <span className="group-hover/leaf:text-[#d48d3b] transition-colors">{item.name}</span>
@@ -1140,11 +1125,7 @@ export default function MenuSection({ onOpenReservation }: MenuSectionProps) {
                       {menuItems.filter(item => item.category === "Savory").map(item => (
                         <div 
                           key={item.name} 
-                          className="group/leaf cursor-pointer p-1 rounded hover:bg-[#eae3d5]/30 transition-all"
-                          onClick={() => {
-                            setActiveDetailItem(item);
-                            setShowFullPhysicalMenu(false);
-                          }}
+                          className="group/leaf cursor-default p-1 rounded"
                         >
                           <div className="flex justify-between items-end font-serif text-base text-[#2c221a] font-medium">
                             <span className="group-hover/leaf:text-[#d48d3b] transition-colors">{item.name}</span>
@@ -1172,11 +1153,7 @@ export default function MenuSection({ onOpenReservation }: MenuSectionProps) {
                       {menuItems.filter(item => item.category === "Dessert").map(item => (
                         <div 
                           key={item.name} 
-                          className="group/leaf cursor-pointer p-1 rounded hover:bg-[#eae3d5]/30 transition-all"
-                          onClick={() => {
-                            setActiveDetailItem(item);
-                            setShowFullPhysicalMenu(false);
-                          }}
+                          className="group/leaf cursor-default p-1 rounded"
                         >
                           <div className="flex justify-between items-end font-serif text-base text-[#2c221a] font-medium">
                             <span className="group-hover/leaf:text-[#d48d3b] transition-colors">{item.name}</span>
@@ -1201,11 +1178,7 @@ export default function MenuSection({ onOpenReservation }: MenuSectionProps) {
                       {menuItems.filter(item => item.category === "Boba" || item.name.includes("Boba")).map(item => (
                         <div 
                           key={item.name} 
-                          className="group/leaf cursor-pointer p-1 rounded hover:bg-[#eae3d5]/30 transition-all"
-                          onClick={() => {
-                            setActiveDetailItem(item);
-                            setShowFullPhysicalMenu(false);
-                          }}
+                          className="group/leaf cursor-default p-1 rounded"
                         >
                           <div className="flex justify-between items-end font-serif text-base text-[#2c221a] font-medium">
                             <span className="group-hover/leaf:text-[#d48d3b] transition-colors">{item.name}</span>
@@ -1230,11 +1203,7 @@ export default function MenuSection({ onOpenReservation }: MenuSectionProps) {
                       {menuItems.filter(item => item.category === "Coffee" || item.category === "Matcha").map(item => (
                         <div 
                           key={item.name} 
-                          className="group/leaf cursor-pointer p-1 rounded hover:bg-[#eae3d5]/30 transition-all"
-                          onClick={() => {
-                            setActiveDetailItem(item);
-                            setShowFullPhysicalMenu(false);
-                          }}
+                          className="group/leaf cursor-default p-1 rounded"
                         >
                           <div className="flex justify-between items-end font-serif text-base text-[#2c221a] font-medium">
                             <span className="group-hover/leaf:text-[#d48d3b] transition-colors">{item.name}</span>
