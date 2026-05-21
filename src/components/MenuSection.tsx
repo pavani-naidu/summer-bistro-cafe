@@ -1135,6 +1135,31 @@ export default function MenuSection({ onOpenReservation }: MenuSectionProps) {
                       ))}
                     </div>
                   </div>
+
+                  {/* STONE OVEN PIZZAS SECTION */}
+                  <div className="space-y-6">
+                    <h3 className="font-mono text-xs tracking-[0.3em] uppercase text-center text-[#d48d3b] border-b border-[#2c221a]/15 pb-2 font-semibold">
+                      • STONE OVEN PIZZAS •
+                    </h3>
+                    
+                    <div className="space-y-5">
+                      {menuItems.filter(item => item.category === "Pizza").map(item => (
+                        <div 
+                          key={item.name} 
+                          className="group/leaf cursor-default p-1 rounded"
+                        >
+                          <div className="flex justify-between items-end font-serif text-base text-[#2c221a] font-medium">
+                            <span className="group-hover/leaf:text-[#d48d3b] transition-colors">{item.name}</span>
+                            <span className="border-b border-[#2c221a]/15 border-dotted flex-grow mx-3 mb-1.5" />
+                            <span className="font-mono font-medium text-sm text-[#d48d3b]">{item.price}</span>
+                          </div>
+                          <p className="font-serif italic text-xxs text-[#2c221a]/65 mt-1 leading-normal">
+                            {item.ingredients}
+                          </p>
+                        </div>
+                      ))}
+                    </div>
+                  </div>
                 </div>
 
                 {/* Right Page Column */}
@@ -1197,6 +1222,31 @@ export default function MenuSection({ onOpenReservation }: MenuSectionProps) {
                     
                     <div className="space-y-5">
                       {menuItems.filter(item => item.category === "Coffee" || item.category === "Matcha").map(item => (
+                        <div 
+                          key={item.name} 
+                          className="group/leaf cursor-default p-1 rounded"
+                        >
+                          <div className="flex justify-between items-end font-serif text-base text-[#2c221a] font-medium">
+                            <span className="group-hover/leaf:text-[#d48d3b] transition-colors">{item.name}</span>
+                            <span className="border-b border-[#2c221a]/15 border-dotted flex-grow mx-3 mb-1.5" />
+                            <span className="font-mono font-medium text-sm text-[#d48d3b]">{item.price}</span>
+                          </div>
+                          <p className="font-serif italic text-xxs text-[#2c221a]/65 mt-1 leading-normal">
+                            {item.ingredients}
+                          </p>
+                        </div>
+                      ))}
+                    </div>
+                  </div>
+
+                  {/* HOUSE SPECIALS SECTION */}
+                  <div className="space-y-6">
+                    <h3 className="font-mono text-xs tracking-[0.3em] uppercase text-center text-[#d48d3b] border-b border-[#2c221a]/15 pb-2 font-semibold">
+                      • HOUSE SPECIALS •
+                    </h3>
+                    
+                    <div className="space-y-5">
+                      {menuItems.filter(item => item.category === "Special").map(item => (
                         <div 
                           key={item.name} 
                           className="group/leaf cursor-default p-1 rounded"

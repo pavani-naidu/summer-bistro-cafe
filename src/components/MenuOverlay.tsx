@@ -98,25 +98,36 @@ export default function MenuOverlay({ isOpen, onClose, onOpenReservation }: Menu
           );
         })}
 
-        {/* Dynamic Reservation CTA card inside booklet */}
-        <div className="p-8 rounded-xl bg-gradient-to-br from-[#1F1714] to-[#181310] border border-gold/20 text-center space-y-6">
-          <div className="max-w-md mx-auto space-y-2">
-            <span className="font-mono text-[9px] tracking-widest text-[#D8A15D] uppercase block">VIP COMPLIANCE</span>
-            <h3 className="font-serif italic text-2xl text-beige font-light">Craving a deep corner booth tonight?</h3>
-            <p className="font-sans font-light text-xs text-muted-beige leading-relaxed">
-              Secure a private table beside our vinyl player. High aesthetic priority given to couples, date nights, and acoustic study.
+        {/* Cute Cozy Reservation CTA card inside booklet */}
+        <div className="p-8 rounded-2xl bg-gradient-to-br from-[#241A16] via-[#1E1512] to-[#181210] border-2 border-dashed border-[#D8A15D]/40 text-center space-y-6 shadow-[0_8px_30px_rgb(0,0,0,0.12)] relative overflow-hidden group">
+          {/* Subtle background cute decoration */}
+          <div className="absolute -top-10 -right-10 w-24 h-24 bg-gold/5 rounded-full blur-xl pointer-events-none group-hover:bg-gold/10 transition-all duration-500" />
+          <div className="absolute -bottom-10 -left-10 w-24 h-24 bg-gold/5 rounded-full blur-xl pointer-events-none group-hover:bg-gold/10 transition-all duration-500" />
+
+          <div className="max-w-md mx-auto space-y-3 relative z-10">
+            <div className="inline-flex items-center gap-1.5 px-3 py-1 bg-gold/10 border border-gold/20 rounded-full font-mono text-[9px] tracking-widest text-[#D8A15D] uppercase">
+              <span>✨ COZY SPOT ✨</span>
+            </div>
+            <h3 className="font-serif italic text-2xl md:text-3xl text-beige font-light leading-snug">
+              Fancy a sweet corner spot tonight?
+            </h3>
+            <p className="font-sans font-light text-xs text-muted-beige/90 leading-relaxed max-w-sm mx-auto">
+              Save a lovely private table right next to our retro vinyl record player. Perfect for romantic dates, quiet study, or just relaxing with good tunes.
             </p>
           </div>
-          <button
-            onClick={() => {
-              onClose();
-              onOpenReservation();
-            }}
-            id="menu-overlay-reserve-shortcut"
-            className="inline-flex items-center gap-2 px-6 py-3 bg-gold hover:bg-white text-black font-mono text-xxs font-bold uppercase tracking-widest rounded-md transition-all cursor-pointer"
-          >
-            Initiate Concierge Reservation <ArrowUpRight className="w-3.5 h-3.5" />
-          </button>
+
+          <div className="relative z-10">
+            <button
+              onClick={() => {
+                onClose();
+                onOpenReservation();
+              }}
+              id="menu-overlay-reserve-shortcut"
+              className="inline-flex items-center gap-2 px-8 py-3 bg-gradient-to-r from-gold to-[#e8b576] hover:from-white hover:to-white text-black font-mono text-xxs font-bold uppercase tracking-widest rounded-full transition-all duration-300 transform hover:scale-105 active:scale-95 shadow-lg shadow-gold/10 hover:shadow-white/5 cursor-pointer"
+            >
+              💖 Book My Cozy Table 💖 <ArrowUpRight className="w-3.5 h-3.5" />
+            </button>
+          </div>
         </div>
 
       </div>

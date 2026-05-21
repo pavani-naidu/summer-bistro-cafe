@@ -79,8 +79,8 @@ export default function ReservationOverlay({ isOpen, onClose }: ReservationOverl
       {/* Header element */}
       <div className="sticky top-0 bg-[#181310]/95 backdrop-blur-md py-4 border-b border-gold/15 flex justify-between items-center z-20 w-full max-w-2xl mx-auto">
         <div className="flex flex-col">
-          <span className="font-serif italic text-2xl text-gold">Concierge Host</span>
-          <span className="font-mono text-[9px] tracking-widest text-[#D8A15D] uppercase mt-0.5">ESTABLISHING BOOTH ALLOCATION</span>
+          <span className="font-serif italic text-2xl text-gold">Cozy Host ✨</span>
+          <span className="font-mono text-[9px] tracking-widest text-[#D8A15D] uppercase mt-0.5">SAVING A SPOT FOR YOU</span>
         </div>
         <button
           onClick={handleReset}
@@ -105,13 +105,13 @@ export default function ReservationOverlay({ isOpen, onClose }: ReservationOverl
               {/* Introduction typography */}
               <div className="space-y-3 prose text-center sm:text-left">
                 <span className="font-mono text-[9px] text-[#D8A15D] tracking-[0.25em] uppercase flex items-center justify-center sm:justify-start gap-1.5 font-semibold">
-                  <Compass className="w-3.5 h-3.5" /> SECURING JUBILEE HILLS CORNER
+                  <Heart className="w-3.5 h-3.5 fill-gold/10" /> JUBILEE HILLS COZY SPOT
                 </span>
                 <h2 className="font-serif italic text-3xl md:text-4xl text-beige">
-                  Plan Your Midnight Rest
+                  Book Your Table
                 </h2>
                 <p className="font-sans font-light text-sm text-muted-beige leading-relaxed">
-                  We maintain a limited grid of booths on Road No. 5 to protect our candle-lit ambient acoustics. Bookings are non-chargeable, managed as digital boarding passes.
+                  We have a few special tables on Road No. 5 waiting for you. All table bookings are completely free!
                 </p>
               </div>
 
@@ -188,7 +188,7 @@ export default function ReservationOverlay({ isOpen, onClose }: ReservationOverl
                   {/* Date selection */}
                   <div className="space-y-2">
                     <label className="font-mono text-[9px] uppercase tracking-widest text-gold/80 flex items-center gap-1">
-                      <Calendar className="w-3 h-3" /> Date of Escape
+                      <Calendar className="w-3 h-3" /> Date
                     </label>
                     <input
                       type="date"
@@ -203,7 +203,7 @@ export default function ReservationOverlay({ isOpen, onClose }: ReservationOverl
                   {/* Time selection */}
                   <div className="space-y-2">
                     <label className="font-mono text-[9px] uppercase tracking-widest text-gold/80 flex items-center gap-1">
-                      <Clock className="w-3 h-3" /> Midnight Hour
+                      <Clock className="w-3 h-3" /> Select Time
                     </label>
                     <select
                       name="time"
@@ -248,11 +248,11 @@ export default function ReservationOverlay({ isOpen, onClose }: ReservationOverl
                   </div>
                 </div>
 
-                {/* Concierge rules agreement */}
-                <div className="p-4 bg-[#1F1714] rounded border border-gold/15 flex gap-3 text-left">
-                  <ShieldCheck className="w-5 h-5 text-gold shrink-0 mt-0.5" />
-                  <span className="font-mono text-[8.5px] leading-relaxed text-muted-beige/70">
-                    BY TAPPING BELOW, YOU ACKNOWLEDGE THE SANCTUARY SPIRIT: WE RESPECT LATE CHILL SILENCE AND PREVENT BRIGHT PORTABLE RING LIGHTS IN PRIMARY BOOTHS.
+                {/* Cozy rules agreement */}
+                <div className="p-4 bg-[#1F1714] rounded-xl border border-gold/15 flex gap-3 text-left">
+                  <Star className="w-5 h-5 text-gold shrink-0 mt-0.5 fill-gold/20" />
+                  <span className="font-mono text-[9px] leading-relaxed text-muted-beige/85">
+                    We want everyone to have a relaxing time! Please keep ring lights off and help us maintain a cozy, peaceful atmosphere. 😊
                   </span>
                 </div>
 
@@ -261,15 +261,15 @@ export default function ReservationOverlay({ isOpen, onClose }: ReservationOverl
                   type="submit"
                   disabled={isSubmitting}
                   id="submit-reservation-btn"
-                  className="w-full py-4 bg-gold hover:bg-[#F2ECE4] text-black font-mono text-xs font-bold uppercase tracking-[0.2em] rounded-md transition-all duration-300 flex items-center justify-center gap-2 cursor-pointer shadow-lg active:scale-[0.99]"
+                  className="w-full py-4 bg-gradient-to-r from-gold to-[#e8b576] hover:from-white hover:to-white text-black font-mono text-xs font-bold uppercase tracking-wider rounded-full transition-all duration-300 flex items-center justify-center gap-2 cursor-pointer shadow-lg active:scale-[0.99]"
                 >
                   {isSubmitting ? (
                     <>
                       <div className="w-3.5 h-3.5 border-2 border-black border-t-transparent rounded-full animate-spin" />
-                      ALIGNED RECORDINGS IN PROGRESS...
+                      Saving your spot... ✨
                     </>
                   ) : (
-                    "Secure Seat Allocation"
+                    "💖 Book My Cozy Table 💖"
                   )}
                 </button>
               </form>
@@ -294,15 +294,15 @@ export default function ReservationOverlay({ isOpen, onClose }: ReservationOverl
               </div>
 
               <div className="space-y-2">
-                <span className="font-mono text-[9px] text-[#D8A15D] tracking-widest uppercase">CONCIERGE CHECKED STATE</span>
-                <h3 className="font-serif italic text-3xl text-beige">Your booth is secured.</h3>
+                <span className="font-mono text-[9px] text-[#D8A15D] tracking-widest uppercase">✨ RESERVATION CONFIRMED ✨</span>
+                <h3 className="font-serif italic text-3xl text-beige">Yay! Your spot is saved! 💖</h3>
                 <p className="font-sans font-light text-sm text-muted-beige max-w-sm mx-auto">
-                  Welcome to the slow-living family, <span className="font-medium text-beige">{formData.fullName}</span>. A master copy reservation ticket has been locked below.
+                  We can't wait to see you, <span className="font-medium text-beige">{formData.fullName}</span>. Here is your cute little booking pass:
                 </p>
               </div>
 
               {/* Boarding Ticket Style details */}
-              <div className="w-full bg-[#181310] border border-gold/15 rounded-md p-5 text-left font-mono space-y-3.5 relative">
+              <div className="w-full bg-[#181310] border border-gold/15 rounded-xl p-5 text-left font-mono space-y-3.5 relative">
                 {/* Boarding holes side details decoration */}
                 <div className="absolute -left-2.5 top-1/2 -translate-y-1/2 h-5 w-5 bg-[#1F1714] rounded-full border-r border-gold/15" />
                 <div className="absolute -right-2.5 top-1/2 -translate-y-1/2 h-5 w-5 bg-[#1F1714] rounded-full border-l border-gold/15" />
@@ -321,41 +321,41 @@ export default function ReservationOverlay({ isOpen, onClose }: ReservationOverl
 
                 <div className="grid grid-cols-2 gap-4 text-xxs uppercase">
                   <div>
-                    <p className="text-muted-beige/40">GUEST SECURING</p>
+                    <p className="text-muted-beige/40">GUEST NAME</p>
                     <p className="font-sans text-beige text-xs mt-0.5 font-light">{formData.fullName}</p>
                   </div>
                   <div>
-                    <p className="text-muted-beige/40">PHONE RETRIEVER</p>
+                    <p className="text-muted-beige/40">PHONE NUMBER</p>
                     <p className="text-beige font-mono text-xs mt-0.5">{formData.phone}</p>
                   </div>
                 </div>
 
                 <div className="grid grid-cols-3 gap-2 text-xxxs uppercase pt-2 border-t border-gold/10">
                   <div>
-                    <p className="text-muted-beige/30">DATE SEAT</p>
+                    <p className="text-muted-beige/30">DATE</p>
                     <p className="text-gold text-xs font-mono mt-0.5 font-semibold">{formData.date}</p>
                   </div>
                   <div>
-                    <p className="text-muted-beige/30">CONCIERGE HR</p>
+                    <p className="text-muted-beige/30">TIME</p>
                     <p className="text-gold text-xs font-mono mt-0.5 font-semibold">{formData.time}</p>
                   </div>
                   <div>
-                    <p className="text-muted-beige/30">CAPACITY PILL</p>
+                    <p className="text-muted-beige/30">GUESTS</p>
                     <p className="text-gold text-xs font-mono mt-0.5 font-semibold">{formData.guests} SEATS</p>
                   </div>
                 </div>
               </div>
 
               {/* Informational checklist and guide */}
-              <div className="font-mono text-[9px] text-muted-beige/75 space-y-1 max-w-sm text-left">
-                <p className="font-serif italic text-gold text-xs mb-1 font-semibold text-center sm:text-left">“How next to activate tonight?”</p>
+              <div className="font-mono text-[9.5px] text-muted-beige/85 space-y-1.5 max-w-sm text-left">
+                <p className="font-serif italic text-gold text-xs mb-1 font-semibold text-center sm:text-left">🌸 What to do next 🌸</p>
                 <div className="flex gap-2 items-start">
                   <span className="text-gold">•</span>
-                  <span>Produce this booking screen when receiving from our doorstep host at Jubilee Hills.</span>
+                  <span>Show this booking screen to our host when you arrive at Jubilee Hills.</span>
                 </div>
                 <div className="flex gap-2 items-start mt-1">
                   <span className="text-gold">•</span>
-                  <span>Booths are held for a romantic window of 15 minutes beyond your target stamp.</span>
+                  <span>We will hold your table for up to 15 minutes, so don't be too late! See you soon!</span>
                 </div>
               </div>
 
@@ -365,7 +365,7 @@ export default function ReservationOverlay({ isOpen, onClose }: ReservationOverl
                 id="success-concierge-close-btn"
                 className="px-8 py-3 bg-beige/5 hover:bg-gold/10 border border-beige/12 hover:border-gold/30 rounded-full font-mono text-xxs uppercase tracking-widest text-beige hover:text-gold transition-colors duration-300 cursor-pointer outline-none"
               >
-                Return to Sanctuary Home
+                Return to Menu ✨
               </button>
             </motion.div>
           )}
