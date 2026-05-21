@@ -1,0 +1,6 @@
+{
+  "name": "Summer Bistro Cafe",
+  "description": "Hyderabad's first and only 24/7 cinematic slow-living cafe and nocturnal luxury sanctuary in Jubilee Hills.",
+  "requestFramePermissions": [],
+  "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
+}

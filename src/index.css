@@ -1,0 +1,127 @@
+@import url('https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;0,700;1,300;1,400;1,500;1,600;1,700&family=Inter:wght@200;300;400;500;600;700&display=swap');
+@import "tailwindcss";
+
+@theme {
+  --font-serif: "Cormorant Garamond", Georgia, serif;
+  --font-sans: "Inter", ui-sans-serif, system-ui, sans-serif;
+  
+  --color-warm-dark: #181310;
+  --color-warm-medium: #1F1714;
+  --color-warm-light: #241A16;
+  --color-card-surface: #2A1D18;
+  --color-ambient: #C67A39;
+  --color-beige: #F3E9DC;
+  --color-muted-beige: #B8A999;
+  
+  --color-terracotta: #1F1714;
+  --color-espresso: #241A16;
+  --color-midnight: #181310;
+  --color-gold: #D8A15D;
+  --color-copper: #8A5A3B;
+}
+
+/* Custom styles for professional cinematique design */
+html, body {
+  margin: 0;
+  padding: 0;
+  background-color: #181310;
+  color: #F3E9DC;
+  font-family: var(--font-sans);
+  overflow-x: hidden;
+  scrollbar-width: thin;
+  scrollbar-color: #D8A15D #181310;
+  scroll-behavior: smooth;
+}
+
+/* Immersive background layouts */
+.cinematic-bg {
+  position: absolute;
+  inset: 0;
+  background: radial-gradient(circle at 70% 30%, #1F1714 0%, #241A16 60%, #181310 100%);
+  z-index: 0;
+}
+
+.ambient-glow {
+  position: absolute;
+  width: 600px;
+  height: 600px;
+  background: radial-gradient(circle, rgba(198, 122, 57, 0.12) 0%, transparent 70%);
+  border-radius: 50%;
+  filter: blur(80px);
+  pointer-events: none;
+}
+
+/* Active body scroll state lock wrapper */
+.no-scroll {
+  overflow: hidden !important;
+  height: 100vh !important;
+  touch-action: none;
+}
+
+/* Smooth custom cursor style */
+.custom-cursor {
+  mix-blend-mode: difference;
+}
+
+/* Film grain effect matching the design's 0.65 frequency */
+@keyframes noise-anim {
+  0% { transform: translate(0,0) }
+  10% { transform: translate(-1%, -1%) }
+  20% { transform: translate(-2%, 1%) }
+  30% { transform: translate(1%, -2%) }
+  40% { transform: translate(-1%, 2%) }
+  50% { transform: translate(-2%, 1%) }
+  60% { transform: translate(1%, -1%) }
+  70% { transform: translate(2%, -2%) }
+  80% { transform: translate(-1%, 1%) }
+  90% { transform: translate(1%, -1%) }
+  100% { transform: translate(0, 0) }
+}
+
+.film-grain-layer {
+  background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noiseFilter'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.65' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noiseFilter)'/%3E%3C/svg%3E");
+  animation: noise-anim 0.4s steps(10) infinite;
+}
+
+/* Glassmorphism custom styles reflecting premium layout */
+.glass {
+  background: rgba(42, 29, 24, 0.3);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  border: 1px solid rgba(255, 255, 255, 0.03);
+}
+
+.glass-panel {
+  background: rgba(31, 23, 20, 0.8);
+  backdrop-filter: blur(20px);
+  -webkit-backdrop-filter: blur(20px);
+  border: 1px solid rgba(216, 161, 93, 0.15);
+}
+
+.glass-panel-light {
+  background: rgba(42, 29, 24, 0.5);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  border: 1px solid rgba(216, 161, 93, 0.1);
+}
+
+.glass-dock {
+  background: rgba(31, 23, 20, 0.75);
+  backdrop-filter: blur(24px);
+  -webkit-backdrop-filter: blur(24px);
+  border: 1px solid rgba(198, 122, 57, 0.2);
+  box-shadow: 0 8px 32px rgba(24, 19, 16, 0.5);
+}
+
+/* Hide webkit scrollbar */
+::-webkit-scrollbar {
+  width: 6px;
+}
+::-webkit-scrollbar-track {
+  background: #181310;
+}
+::-webkit-scrollbar-thumb {
+  background: #D8A15D;
+  border-radius: 3px;
+}
+
