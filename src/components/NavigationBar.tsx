@@ -63,7 +63,7 @@ export default function NavigationBar() {
                 Summer Bistro
               </span>
               <span className="font-mono text-[10px] md:text-[11px] tracking-[0.12em] text-[#D8A15D]/80 group-hover:text-amber-300 transition-colors duration-300 uppercase leading-none mt-1 flex items-center gap-1">
-                <span className="text-amber-400">✨</span> JUBILEE HILLS, HYDERABAD
+                <MapPin className="w-3 h-3 text-[#D8A15D] shrink-0" /> JUBILEE HILLS, HYDERABAD
               </span>
             </div>
           </div>

@@ -7,15 +7,14 @@ export interface MenuItem {
   imageUrl?: string;
 }
 
-export type IntentPill = "Date Night" | "Content Creation" | "Late Chill" | "Coffee Network";
-
 export interface ReservationForm {
-  fullName: string;
+  tone: string;
+  name: string;
+  gmail: string;
   phone: string;
   date: string;
   time: string;
   guests: string;
-  intent: IntentPill;
 }
 
 export const CATEGORIES = ["All", "Coffee", "Matcha", "Pizza", "Savory", "Special", "Dessert", "Boba", "Breakfast", "Soup", "Salad"] as const;

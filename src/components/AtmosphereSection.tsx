@@ -6,22 +6,22 @@ import gardenImgNew from "../assets/images/garden_highres.png";
 export default function AtmosphereSection() {
   const cardsData = [
     {
-      label: "OPEN 24/7 EVERYDAY",
-      title: "🕒 Open 24/7 Everyday",
+      label: "SANCTUARY HOURS",
+      title: "Open 24/7 Everyday",
       desc: "Our doors are never locked and our lights are always on! It is a safe, warm, and friendly spot for everyone to hang out, day or night.",
       image: cafeEntranceImg,
       badge: "Open 24/7"
     },
     {
-      label: "CUSTOM PHOTO COFFEE",
-      title: "📸 Custom Photo Coffee",
+      label: "EDIBLE ART STUDIO",
+      title: "Custom Photo Coffee",
       desc: "We love making your visits fun! We can print your favorite cute selfies, photos, or text directly onto your warm coffee foam and food.",
       image: coffeeImgNew,
       badge: "Edible Printing"
     },
     {
-      label: "BEAUTIFUL GREEN GARDEN",
-      title: "🌿 Beautiful Green Garden",
+      label: "INDOOR OASIS",
+      title: "Beautiful Green Garden",
       desc: "Relax on our quiet wooden tables surrounded by green plants and calming indoor waterfalls that block out the busy city noise. Perfect for a laptop session or a cute date!",
       image: gardenImgNew,
       badge: "Indoor Oasis"
@@ -112,11 +112,6 @@ export default function AtmosphereSection() {
                     </p>
                   </div>
 
-                  {/* Micro action border detail */}
-                  <div className="pt-4 border-t border-amber-900/15 flex items-center justify-between text-xs tracking-wider font-mono text-amber-500/90 group-hover:text-amber-400 transition-colors duration-300">
-                    <span>Discover more</span>
-                    <span className="transform duration-300 group-hover:translate-x-1.5 px-1">→</span>
-                  </div>
                 </div>
               </motion.div>
             );

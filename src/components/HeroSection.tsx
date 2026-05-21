@@ -68,7 +68,7 @@ export default function HeroSection({ onOpenMenu, onOpenReserve }: HeroSectionPr
               </div>
               <div className="flex flex-col">
                 <span className="font-mono text-[7px] tracking-[0.25em] text-neutral-400 uppercase leading-none mb-0.5 font-medium">
-                  🕒 Cafe Time
+                  Cafe Time
                 </span>
                 <div className="flex items-baseline gap-1">
                   <span className="font-mono text-sm tracking-wide text-amber-400 font-bold">
@@ -197,7 +197,7 @@ export default function HeroSection({ onOpenMenu, onOpenReserve }: HeroSectionPr
               {/* Caption Tag */}
               <div className="absolute bottom-4 left-4 right-4 flex justify-between items-end">
                 <div>
-                  <span className="font-mono text-[8px] text-amber-500 tracking-widest uppercase block mb-0.5">AFOOD CRAFT</span>
+                  <span className="font-mono text-[8px] text-amber-500 tracking-widest uppercase block mb-0.5">FOOD CRAFT</span>
                   <p className="font-serif italic text-beige text-sm">Artisanal Sourdough Pizza</p>
                 </div>
                 <div className="p-1.5 rounded-lg bg-[#0B0806]/90 border border-amber-900/40">
@@ -257,7 +257,7 @@ export default function HeroSection({ onOpenMenu, onOpenReserve }: HeroSectionPr
           <div className="flex items-center gap-2 mb-6 w-fit px-3.5 py-1.5 rounded-full bg-amber-400/10 border border-amber-400/25 text-amber-400 select-none">
             <span className="h-1.5 w-1.5 rounded-full bg-amber-400 animate-pulse shadow-[0_0_8px_#f59e0b]" />
             <span className="font-mono text-[10px] uppercase tracking-widest font-bold">
-              ✨ OUR COZY CAFE AMENITIES
+              OUR COZY CAFE AMENITIES
             </span>
           </div>
 

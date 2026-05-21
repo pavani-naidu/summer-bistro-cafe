@@ -586,7 +586,7 @@ export default function MenuSection({ onOpenReservation }: MenuSectionProps) {
                           <Loader2 className="w-9 h-9 text-gold animate-spin mx-auto" />
                           <div className="space-y-1.5">
                             <span className="font-mono text-[9px] text-[#D8A15D] uppercase tracking-widest block font-bold animate-pulse">
-                              🌟 GASTRONOMIC PIPELINE RUNNING
+                              GASTRONOMIC PIPELINE RUNNING
                             </span>
                             <p className="font-serif italic text-xs text-[#faf6ee] px-4 leading-normal">
                               "{generationStep}"

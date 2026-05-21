@@ -1,5 +1,6 @@
+import { useState, Fragment } from "react";
 import { motion } from "motion/react";
-import { Coffee, MapPin, Calendar, Compass, Disc } from "lucide-react";
+import { Coffee, MapPin, Calendar } from "lucide-react";
 
 interface StickyDockProps {
   onOpenMenu: () => void;
@@ -7,74 +8,116 @@ interface StickyDockProps {
 }
 
 export default function StickyDock({ onOpenMenu, onOpenReserve }: StickyDockProps) {
+  const [hoveredIdx, setHoveredIdx] = useState<number | null>(null);
+
+  const items = [
+    {
+      label: "View Menu",
+      icon: Coffee,
+      action: onOpenMenu,
+      id: "dock-menu-btn"
+    },
+    {
+      label: "Reserve",
+      icon: Calendar,
+      action: onOpenReserve,
+      id: "dock-reserve-btn"
+    },
+    {
+      label: "Locate",
+      icon: MapPin,
+      href: "https://maps.app.goo.gl/RXGUdHqvZAaAHia79",
+      id: "dock-locate-link"
+    }
+  ];
+
   return (
     <div 
       className="fixed bottom-6 inset-x-0 mx-auto w-[90%] max-w-sm h-16 z-40 select-none pb-safe pointer-events-auto"
       id="floating-navigation-dock"
     >
-      {/* Dock glassmorphic body layout */}
-      <div className="w-full h-full glass-dock rounded-2xl flex items-center justify-between px-3 relative shadow-[0_8px_32px_rgba(0,0,0,0.7)]">
+      {/* Dock glassmorphic body layout with a subtle ambient gold shadow and warm gradient background */}
+      <div className="w-full h-full bg-gradient-to-b from-[#251b17]/95 to-[#1c1411]/98 backdrop-blur-xl border border-gold/20 rounded-2xl flex items-center justify-between px-2 relative shadow-[0_12px_40px_rgba(0,0,0,0.85),_0_0_20px_rgba(216,161,93,0.12)]">
         
-        {/* Abstract decorative record player needle arm & disc */}
-        <div className="absolute -top-3.5 -left-1.5 p-1 bg-card-surface border border-gold/40 rounded-full flex items-center justify-center animate-spin-slow pointer-events-none hidden xs:flex shadow-lg z-50">
-          <Disc className="w-3.5 h-3.5 text-gold/90" />
-          {/* Subtle centering vintage spindle pin */}
-          <div className="absolute w-1 h-1 bg-gold rounded-full" />
-        </div>
-        {/* Tiny golden tone-arm needle pointing inwards */}
-        <div className="absolute -top-4 left-3 w-3 h-0.5 bg-gradient-to-r from-gold to-gold/40 origin-left rotate-[45deg] pointer-events-none hidden xs:block z-50" />
-
-        {/* View Menu Deck button */}
-        <button
-          onClick={onOpenMenu}
-          id="dock-menu-btn"
-          className="flex flex-col items-center justify-center flex-grow py-1 hover:text-gold text-beige/80 transition-colors cursor-pointer group outline-none"
-        >
-          <Coffee className="w-4.5 h-4.5 mb-1 text-gold/80 group-hover:text-gold transition-colors" />
-          <span className="font-mono text-[8px] uppercase tracking-wider text-muted-beige group-hover:text-gold font-medium">
-            View Menu
+        {/* Sleek pulsing status tag inside the dock for a clean premium vibe */}
+        <div className="absolute right-4 -top-2 flex items-center gap-1 px-2.5 py-0.5 rounded-full bg-[#181310]/95 border border-gold/30 shadow-[0_4px_12px_rgba(0,0,0,0.5)] select-none pointer-events-none">
+          <span className="relative flex h-1.5 w-1.5">
+            <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-gold opacity-80" />
+            <span className="relative inline-flex rounded-full h-1.5 w-1.5 bg-gold" />
           </span>
-        </button>
-
-        {/* Decorative divider */}
-        <div className="h-6 w-[1px] bg-gold/20 shrink-0" />
-
-        {/* Call to reservation button */}
-        <button
-          onClick={onOpenReserve}
-          id="dock-reserve-btn"
-          className="flex flex-col items-center justify-center flex-grow py-1 hover:text-gold text-beige/80 transition-colors cursor-pointer group outline-none"
-        >
-          <Calendar className="w-4.5 h-4.5 mb-1 text-gold/80 group-hover:text-gold transition-colors" />
-          <span className="font-mono text-[8px] uppercase tracking-wider text-muted-beige group-hover:text-gold font-medium">
-            Reserve
-          </span>
-        </button>
-
-        {/* Decorative divider */}
-        <div className="h-6 w-[1px] bg-gold/20 shrink-0" />
-
-        {/* Locate map anchor button */}
-        <a
-          href="https://maps.app.goo.gl/RXGUdHqvZAaAHia79"
-          target="_blank"
-          rel="noopener noreferrer"
-          id="dock-locate-link"
-          className="flex flex-col items-center justify-center flex-grow py-1 text-beige/80 hover:text-gold transition-colors group select-none outline-none"
-        >
-          <MapPin className="w-4.5 h-4.5 mb-1 text-gold/80 group-hover:text-gold transition-colors" />
-          <span className="font-mono text-[8px] uppercase tracking-wider text-muted-beige group-hover:text-gold font-medium">
-            Locate
-          </span>
-        </a>
-
-        {/* Central visual pulse indicator to match Hyderabad Night Lounge theme */}
-        <div className="absolute right-3 -top-1 flex h-2 w-2 select-none pointer-events-none">
-          <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-gold opacity-75" />
-          <span className="relative inline-flex rounded-full h-2 w-2 bg-gold" />
+          <span className="font-mono text-[7px] uppercase tracking-[0.15em] text-gold font-bold">24/7 Live</span>
         </div>
 
+        {items.map((item, idx) => {
+          const Icon = item.icon;
+          const isHovered = hoveredIdx === idx;
+          
+          const content = (
+            <div className="flex flex-col items-center justify-center py-2 h-full z-10 w-full transition-all duration-300">
+              <motion.div
+                animate={
+                  isHovered
+                    ? idx === 0
+                      ? { rotate: [0, -10, 10, -5, 5, 0], scale: 1.18 }
+                      : idx === 1
+                      ? { y: [0, -5, 2, -2, 0], scale: 1.18 }
+                      : { y: [0, -6, 0], scale: 1.18 }
+                    : { rotate: 0, y: 0, scale: 1 }
+                }
+                transition={{ duration: 0.5, ease: "easeInOut" }}
+                className="mb-1 text-gold/80 group-hover:text-gold transition-colors duration-300"
+              >
+                <Icon className="w-[18px] h-[18px] stroke-[1.8]" />
+              </motion.div>
+              <span className="font-mono text-[8.5px] uppercase tracking-[0.12em] text-muted-beige group-hover:text-gold transition-colors duration-300 font-semibold">
+                {item.label}
+              </span>
+            </div>
+          );
+
+          return (
+            <Fragment key={item.label}>
+              {idx > 0 && <div className="h-6 w-[1px] bg-gold/15 shrink-0 pointer-events-none" />}
+              
+              <div 
+                className="relative flex-1 h-12 flex items-center justify-center group"
+                onMouseEnter={() => setHoveredIdx(idx)}
+                onMouseLeave={() => setHoveredIdx(null)}
+              >
+                {/* Smooth sliding magnetic pill selection indicator */}
+                {isHovered && (
+                  <motion.div
+                    layoutId="dock-hover-highlight"
+                    className="absolute inset-0 bg-gold/8 rounded-xl border border-gold/15 shadow-[inset_0_1px_4px_rgba(218,161,93,0.05)] -z-0"
+                    transition={{ type: "spring", stiffness: 380, damping: 28 }}
+                  />
+                )}
+                
+                {item.href ? (
+                  <a
+                    href={item.href}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    id={item.id}
+                    className="w-full h-full flex items-center justify-center outline-none select-none cursor-pointer"
+                  >
+                    {content}
+                  </a>
+                ) : (
+                  <button
+                    onClick={item.action}
+                    id={item.id}
+                    className="w-full h-full flex items-center justify-center outline-none cursor-pointer"
+                  >
+                    {content}
+                  </button>
+                )}
+              </div>
+            </Fragment>
+          );
+        })}
       </div>
     </div>
   );
 }
+
