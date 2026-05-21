@@ -348,7 +348,6 @@ export default function MenuSection({ onOpenReservation }: MenuSectionProps) {
           <AnimatePresence mode="popLayout">
             {filteredItems.length > 0 ? (
               filteredItems.map((item, index) => {
-                const effectiveImage = item.imageUrl || generatedImages[item.name];
                 return (
                   <motion.div
                     key={item.name}
@@ -364,78 +363,49 @@ export default function MenuSection({ onOpenReservation }: MenuSectionProps) {
                     onClick={() => {
                       setActiveDetailItem(item);
                     }}
-                    className="group relative flex flex-col justify-between overflow-hidden rounded-xl border bg-card-surface/75 border-gold/10 hover:border-gold/35 hover:bg-card-surface/90 shadow-lg hover:shadow-[0_20px_45px_rgba(216,161,93,0.08)] hover:-translate-y-1 hover:scale-[1.02] transition-all duration-500 cursor-pointer"
+                    className="group relative flex flex-col justify-between overflow-hidden rounded-xl border bg-card-surface/75 border-gold/10 hover:border-gold/30 hover:bg-card-surface/90 shadow-lg hover:shadow-[0_15px_30px_rgba(216,161,93,0.05)] hover:-translate-y-0.5 transition-all duration-300 cursor-pointer min-h-[170px]"
                     style={{
-                      transition: "all 0.5s cubic-bezier(0.25, 1, 0.5, 1)"
+                      transition: "all 0.4s cubic-bezier(0.25, 1, 0.5, 1)"
                     }}
                   >
-                    <div className="flex flex-col h-full w-full">
-                      {/* Portrait Image Deck */}
-                      <div className="relative overflow-hidden w-full h-60">
-                        {effectiveImage ? (
-                          <img
-                            src={effectiveImage}
-                            alt={item.name}
-                            className="w-full h-full object-cover select-none filter brightness-90 saturate-[0.85] transition-transform duration-1000 group-hover:scale-105"
-                            loading="lazy"
-                            referrerPolicy="no-referrer"
-                          />
-                        ) : (
-                          <div className="w-full h-full bg-gradient-to-br from-[#161210] to-[#251b17] flex flex-col items-center justify-center p-6 text-center border-b border-gold/10 relative overflow-hidden">
-                            <div className="absolute inset-0 bg-radial-gradient from-gold/5 via-transparent to-transparent opacity-60 pointer-events-none" />
-                            <div className="p-3.5 rounded-full bg-gold/5 border border-gold/15 text-gold/80 mb-3 group-hover:scale-110 transition-transform duration-500">
-                              <Sparkles className="w-5 h-5 text-gold animate-pulse" />
-                            </div>
-                            <span className="font-mono text-[9px] uppercase tracking-widest text-gold/80 block mb-1">
-                              AI Synthesizer Pending
-                            </span>
-                            <span className="font-serif italic text-xs text-muted-beige line-clamp-2 px-2">
-                              Tap to inspect generative prompt & draw culinary realism
-                            </span>
-                          </div>
-                        )}
-                        
-                        {/* Dark aesthetic gradients */}
-                        <div className="absolute inset-0 bg-gradient-to-t from-warm-dark via-warm-dark/30 to-transparent" />
-                        
-                        {/* Floating Category Tag */}
-                        <div className="absolute top-4 left-4 font-mono text-[9px] uppercase tracking-widest bg-warm-dark/85 backdrop-blur-md px-3 py-1.5 rounded-full border border-gold/20 text-gold flex items-center gap-1.5">
-                          <Coffee className="w-2.5 h-2.5 text-gold" /> {item.category}
-                        </div>
+                    {/* Atmospheric terracotta glow inside card on hover */}
+                    <div className="absolute inset-0 bg-gradient-to-tr from-ambient/5 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500 pointer-events-none" />
+                    <div className="absolute -inset-px bg-gradient-to-tr from-copper/15 via-transparent to-gold/5 opacity-0 group-hover:opacity-100 transition-opacity duration-500 rounded-xl pointer-events-none" />
 
-                        {/* Display pricing */}
-                        <div className="absolute bottom-4 right-4 font-mono text-base font-semibold text-[#D8A15D] bg-warm-dark/80 backdrop-blur-sm px-3.5 py-1 rounded-md border border-gold/15">
-                          {item.price}
-                        </div>
-                      </div>
-
-                      {/* Metadata Area */}
-                      <div className="p-5 flex flex-col justify-between flex-grow space-y-3">
-                        {/* Atmospheric terracotta glow inside card on hover */}
-                        <div className="absolute inset-0 bg-gradient-to-tr from-ambient/5 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-700 pointer-events-none" />
-                        <div className="absolute -inset-px bg-gradient-to-tr from-copper/15 via-transparent to-gold/5 opacity-0 group-hover:opacity-100 transition-opacity duration-700 rounded-xl pointer-events-none" />
-
-                        <div className="relative z-10 space-y-3">
-                          <h3 className="font-serif italic text-2xl text-beige tracking-wide font-medium group-hover:text-gold transition-colors duration-300 line-clamp-1">
+                    <div className="p-6 flex flex-col justify-between h-full w-full relative z-10 space-y-4">
+                      <div className="space-y-2">
+                        {/* Title & Price Header */}
+                        <div className="flex justify-between items-start gap-4">
+                          <h3 className="font-serif italic text-xl text-beige tracking-wide font-medium group-hover:text-gold transition-colors duration-300 leading-tight">
                             {item.name}
                           </h3>
-                          
-                          <p className="font-sans font-light text-xs text-muted-beige/85 line-clamp-2 leading-relaxed">
-                            {item.ingredients}
-                          </p>
-
-                          {/* Tags Pill */}
-                          <div className="flex flex-wrap gap-1.5 pt-1">
-                            {item.tags.slice(0, 2).map((tag) => (
-                              <span 
-                                key={tag}
-                                className="font-mono text-[8.5px] uppercase tracking-wider text-muted-beige border border-gold/5 bg-white/[0.01] px-2 py-0.5 rounded"
-                              >
-                                {tag}
-                              </span>
-                            ))}
-                          </div>
+                          <span className="font-mono text-base font-medium text-[#D8A15D] shrink-0">
+                            {item.price}
+                          </span>
                         </div>
+
+                        {/* Ingredients */}
+                        <p className="font-sans font-light text-xs text-muted-beige/80 line-clamp-3 leading-relaxed">
+                          {item.ingredients}
+                        </p>
+                      </div>
+
+                      {/* Footer: Tags and Category */}
+                      <div className="flex flex-wrap items-center justify-between gap-2 pt-3 border-t border-gold/5">
+                        <div className="flex flex-wrap gap-1.5">
+                          {item.tags.slice(0, 2).map((tag) => (
+                            <span 
+                              key={tag}
+                              className="font-mono text-[8px] uppercase tracking-widest text-muted-beige/50 border border-white/5 bg-white/[0.01] px-2 py-0.5 rounded"
+                            >
+                              {tag}
+                            </span>
+                          ))}
+                        </div>
+                        
+                        <span className="font-mono text-[8px] uppercase tracking-widest text-gold/80 bg-gold/5 border border-gold/10 px-2 py-0.5 rounded flex items-center gap-1.5">
+                          <Coffee className="w-2 h-2 text-gold" /> {item.category}
+                        </span>
                       </div>
                     </div>
                   </motion.div>
