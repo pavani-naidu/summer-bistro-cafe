@@ -371,7 +371,7 @@ export default function MenuSection({ onOpenReservation }: MenuSectionProps) {
                   >
                     <div className="flex flex-col h-full w-full">
                       {/* Portrait Image Deck */}
-                      <div className="relative overflow-hidden w-full h-72">
+                      <div className="relative overflow-hidden w-full h-60">
                         {effectiveImage ? (
                           <img
                             src={effectiveImage}
@@ -410,7 +410,7 @@ export default function MenuSection({ onOpenReservation }: MenuSectionProps) {
                       </div>
 
                       {/* Metadata Area */}
-                      <div className="p-6 flex flex-col justify-between flex-grow space-y-4">
+                      <div className="p-5 flex flex-col justify-between flex-grow space-y-3">
                         {/* Atmospheric terracotta glow inside card on hover */}
                         <div className="absolute inset-0 bg-gradient-to-tr from-ambient/5 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-700 pointer-events-none" />
                         <div className="absolute -inset-px bg-gradient-to-tr from-copper/15 via-transparent to-gold/5 opacity-0 group-hover:opacity-100 transition-opacity duration-700 rounded-xl pointer-events-none" />
@@ -436,13 +436,6 @@ export default function MenuSection({ onOpenReservation }: MenuSectionProps) {
                             ))}
                           </div>
                         </div>
-
-                        {/* Expand / Collapse Indicator Hint */}
-                        <div className="w-full flex justify-between items-center text-[10px] font-mono text-muted-beige/40 uppercase tracking-widest pt-4 border-t border-gold/10 relative z-10 group-hover:text-gold/60 transition-colors">
-                          <span>Inspect Recipe & Space</span>
-                          <ArrowRight className="w-3.5 h-3.5 group-hover:translate-x-1 transition-transform" />
-                        </div>
-
                       </div>
                     </div>
                   </motion.div>

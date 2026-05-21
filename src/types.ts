@@ -20,7 +20,7 @@ export interface ReservationForm {
 
 export const CATEGORIES = ["All", "Coffee", "Matcha", "Pizza", "Savory", "Special", "Dessert", "Boba", "Breakfast", "Soup", "Salad"] as const;
 
-export export const menuItems: MenuItem[] = [
+export const menuItems: MenuItem[] = [
   // --- SIGNATURES / EXISTING DECK ---
   {
     name: "Lotus Biscoff Cream Brew",
@@ -28,7 +28,7 @@ export export const menuItems: MenuItem[] = [
     category: "Coffee",
     ingredients: "Slow-dripped organic espresso cold brew, caramelized Lotus cookie butter smooth reduction, double-whipped sweet cream, and a crumbled caramelized Biscoff biscuit crown.",
     tags: ["Signature", "House Cold Brew", "Sweet Cream"],
-    imageUrl: "https://images.unsplash.com/photo-1517701550927-30cf4ba1dba5?q=80&w=600&auto=format&fit=crop"
+    imageUrl: "https://images.unsplash.com/photo-1553909489-cd47e0907980?auto=format&fit=crop&q=80&w=800"
   },
   {
     name: "Premium Iced Matcha Latte",
@@ -60,7 +60,7 @@ export export const menuItems: MenuItem[] = [
     category: "Coffee",
     ingredients: "Single-origin hand-blown double espresso shot layered delicately over chilled raw Valencia orange juice nectar, finished with a fresh aromatic rosemary torch.",
     tags: ["Citrus Note", "Cold Brew Fusion", "Vibrant & Bold"],
-    imageUrl: "https://images.unsplash.com/photo-1514432324607-a09d9b4aefdd?q=80&w=600&auto=format&fit=crop"
+    imageUrl: "https://images.unsplash.com/photo-1513558161293-cdaf765ed2fd?auto=format&fit=crop&q=80&w=800"
   },
   {
     name: "Basic Human Needs Cold Latte",
@@ -176,7 +176,7 @@ export export const menuItems: MenuItem[] = [
     category: "Soup",
     ingredients: "Rich, velvety broccoli puree cooked with fresh organic cream, topped with toasted almond flakes.",
     tags: ["Vegetarian", "Creamy", "Nutty Crunch"],
-    imageUrl: "https://images.unsplash.com/photo-1547592180-85f173990554?auto=format&fit=crop&q=80&w=800"
+    imageUrl: "https://images.unsplash.com/photo-1615485290382-441e4d049cb5?auto=format&fit=crop&q=80&w=800"
   },
   {
     name: "Chicken Shredded Lentil Soup",
@@ -310,7 +310,7 @@ export export const menuItems: MenuItem[] = [
     category: "Dessert",
     ingredients: "Thick-slice brioche stuffed with sweetened cream cheese and fresh berries, fried golden and dusted with sugar.",
     tags: ["Sweet Brioche", "Cream Cheese Filled"],
-    imageUrl: "https://images.unsplash.com/photo-1484723091739-30a097e8f929?auto=format&fit=crop&q=80&w=800"
+    imageUrl: "https://images.unsplash.com/photo-1541532713592-79a0317b6b77?auto=format&fit=crop&q=80&w=800"
   },
   {
     name: "Sticky Toffee Pudding",
@@ -342,7 +342,7 @@ export export const menuItems: MenuItem[] = [
     category: "Dessert",
     ingredients: "Warm dark chocolate cake with a liquid molten cocoa core, served with a scoop of premium vanilla ice cream.",
     tags: ["Molten Core", "Vanilla Scoop"],
-    imageUrl: "https://images.unsplash.com/photo-1606313564200-e75d5e30476c?auto=format&fit=crop&q=80&w=800"
+    imageUrl: "https://images.unsplash.com/photo-1563729784474-d77dbb933a9e?auto=format&fit=crop&q=80&w=800"
   },
   {
     name: "Tarte Tatin",
@@ -384,7 +384,7 @@ export export const menuItems: MenuItem[] = [
     category: "Boba",
     ingredients: "Warm organic tapioca pearls, premium Belgian chocolate fusion, creamy whole split hazelnut milk reduction, topped with a custom sea salty cream foam crown.",
     tags: ["Hand-made Boba", "Indulgent Mix"],
-    imageUrl: "https://images.unsplash.com/photo-1541658016709-82535e94bc69?auto=format&fit=crop&q=80&w=800"
+    imageUrl: "https://images.unsplash.com/photo-1558857563-b3719d087e59?auto=format&fit=crop&q=80&w=800"
   },
   {
     name: "Green Tea & Cream Cheese Boba",
@@ -400,7 +400,7 @@ export export const menuItems: MenuItem[] = [
     category: "Boba",
     ingredients: "Signature espresso boba iced latte sweetened with condensed milk and loaded with signature tapioca pearls.",
     tags: ["Espresso Boba", "Late Night Latte"],
-    imageUrl: "https://images.unsplash.com/photo-1517701550927-30cf4ba1dba5?auto=format&fit=crop&q=80&w=800"
+    imageUrl: "https://images.unsplash.com/photo-1507133750040-4a8f57021571?auto=format&fit=crop&q=80&w=800"
   },
 
   // --- HOT & COLD STIMULATORS (COFFEE) ---
@@ -450,9 +450,6 @@ export export const menuItems: MenuItem[] = [
     category: "Coffee",
     ingredients: "Warm Belgian chocolate melted into creamy steamed milk, topped with mini marshmallows.",
     tags: ["Sweet Warmth", "Belgian Chocolate"],
-    imageUrl: "https://images.unsplash.com/photo-1544787219-7f47ccb76574?auto=format&fit=crop&q=80&w=800"
-  }
-];olate"],
-    imageUrl: "https://images.unsplash.com/photo-1544787219-7f47ccb76574?auto=format&fit=crop&q=80&w=800"
+    imageUrl: "https://images.unsplash.com/photo-1542990253-0d0f5be5f0ed?auto=format&fit=crop&q=80&w=800"
   }
 ];
