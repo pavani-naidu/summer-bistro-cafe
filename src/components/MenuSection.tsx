@@ -360,20 +360,16 @@ export default function MenuSection({ onOpenReservation }: MenuSectionProps) {
                       delay: (index % 4) * 0.1,
                       layout: { type: "spring", stiffness: 200, damping: 25 }
                     }}
-                    className="group relative flex flex-col justify-between overflow-hidden rounded-xl border bg-card-surface/75 border-gold/10 hover:border-gold/30 hover:bg-card-surface/90 shadow-lg hover:shadow-[0_15px_30px_rgba(216,161,93,0.05)] hover:-translate-y-0.5 transition-all duration-300 cursor-default min-h-[170px]"
+                    className="relative flex flex-col justify-between overflow-hidden rounded-xl border bg-card-surface/75 border-gold/10 shadow-lg cursor-default min-h-[170px]"
                     style={{
                       transition: "all 0.4s cubic-bezier(0.25, 1, 0.5, 1)"
                     }}
                   >
-                    {/* Atmospheric terracotta glow inside card on hover */}
-                    <div className="absolute inset-0 bg-gradient-to-tr from-ambient/5 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500 pointer-events-none" />
-                    <div className="absolute -inset-px bg-gradient-to-tr from-copper/15 via-transparent to-gold/5 opacity-0 group-hover:opacity-100 transition-opacity duration-500 rounded-xl pointer-events-none" />
-
                     <div className="p-6 flex flex-col justify-between h-full w-full relative z-10 space-y-4">
                       <div className="space-y-2">
                         {/* Title & Price Header */}
                         <div className="flex justify-between items-start gap-4">
-                          <h3 className="font-serif italic text-xl text-beige tracking-wide font-medium group-hover:text-gold transition-colors duration-300 leading-tight">
+                          <h3 className="font-serif italic text-xl text-beige tracking-wide font-medium leading-tight">
                             {item.name}
                           </h3>
                           <span className="font-mono text-base font-medium text-[#D8A15D] shrink-0">
