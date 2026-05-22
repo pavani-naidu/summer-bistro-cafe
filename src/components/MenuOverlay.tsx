@@ -13,7 +13,7 @@ export default function MenuOverlay({ isOpen, onClose, onOpenReservation }: Menu
   if (!isOpen) return null;
 
   // Group items by category for highly legible cookbook-style list layout
-  const categories = ["Coffee", "Matcha", "Pizza", "Savory", "Special"] as const;
+  const categories = ["Coffee", "Matcha", "Boba", "Breakfast", "Pizza", "Savory", "Salad", "Soup", "Dessert", "Special"] as const;
 
   return (
     <motion.div

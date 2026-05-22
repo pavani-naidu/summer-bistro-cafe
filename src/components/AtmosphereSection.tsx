@@ -41,7 +41,7 @@ export default function AtmosphereSection() {
 
   const handleCardClick = (index: number) => {
     if (index === 0) {
-      document.getElementById("operational-status")?.scrollIntoView({ behavior: "smooth", block: "center" });
+      document.getElementById("venue-features")?.scrollIntoView({ behavior: "smooth", block: "start" });
     } else if (index === 1) {
       document.getElementById("menu")?.scrollIntoView({ behavior: "smooth", block: "start" });
     } else if (index === 2) {

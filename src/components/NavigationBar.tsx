@@ -1,17 +1,17 @@
 import { useState, useEffect } from "react";
 import { motion, AnimatePresence } from "motion/react";
-import { Home, Trees, Utensils, MapPin, Menu, X, Coffee } from "lucide-react";
+import { Home, Trees, Utensils, MapPin, Menu, X } from "lucide-react";
 import logoImg from "../assets/images/logo.png";
 
 export default function NavigationBar() {
-  const [isScrolled, setIsScrolled] = useState(false);
+
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
   const [activeSection, setActiveSection] = useState("hero");
 
   // Track scroll position to adjust background intensity and active section highlight
   useEffect(() => {
     const handleScroll = () => {
-      setIsScrolled(window.scrollY > 50);
+
 
       // Simple active section detection
       const sections = ["hero", "escape", "menu", "footer"];

@@ -2,9 +2,9 @@ import { useState, useEffect } from "react";
 import { motion, AnimatePresence } from "motion/react";
 import { menuItems, MenuItem, CATEGORIES } from "../types";
 import { 
-  Coffee, Flame, Heart, Sparkles, SlidersHorizontal, Search, X,
+  Coffee, Flame, Heart, Sparkles, Search, X,
   Utensils, Calendar, VolumeX, Users, Laptop, Wifi, Home, Lock, Armchair, Trees,
-  Cpu, Image as ImageIcon, FileText, CheckCircle, ArrowRight, Loader2, RotateCcw,
+  Cpu, FileText, CheckCircle, Loader2,
   Star
 } from "lucide-react";
 
@@ -150,7 +150,7 @@ export default function MenuSection({ onOpenReservation }: MenuSectionProps) {
   const [selectedCategory, setSelectedCategory] = useState<string>("All");
   const [searchQuery, setSearchQuery] = useState<string>("");
   const [expandedItemId, setExpandedItemId] = useState<string | null>(null);
-  const [selectedFeatureCat, setSelectedFeatureCat] = useState<string>("All");
+
 
   // New states for interactive detail modal card and generative image sandbox
   const [activeDetailItem, setActiveDetailItem] = useState<MenuItem | null>(null);
@@ -236,9 +236,7 @@ export default function MenuSection({ onOpenReservation }: MenuSectionProps) {
     return matchesCategory && (matchesName || matchesIngredients || matchesTags);
   });
 
-  const filteredFeatures = VENUE_FEATURES.filter(
-    (feature) => selectedFeatureCat === "All" || feature.category === selectedFeatureCat
-  );
+
 
   const toggleExpand = (itemName: string) => {
     if (expandedItemId === itemName) {
@@ -268,9 +266,7 @@ export default function MenuSection({ onOpenReservation }: MenuSectionProps) {
             transition={{ duration: 1.2, ease: [0.25, 1, 0.5, 1] }}
             className="space-y-4 max-w-xl"
           >
-            <span className="font-mono text-xs text-gold uppercase tracking-[0.3em] flex items-center gap-2">
-              <Coffee className="w-3.5 h-3.5" /> SECTION III • METICULOUS DECK
-            </span>
+
             <h2 className="font-serif italic font-light text-4xl md:text-5xl lg:text-6xl text-beige">
               The All-Night Menu
             </h2>

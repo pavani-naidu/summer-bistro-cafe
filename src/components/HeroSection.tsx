@@ -160,7 +160,7 @@ export default function HeroSection({ onOpenMenu, onOpenReserve }: HeroSectionPr
             className="space-y-4"
             style={{ perspective: '1000px' }}
           >
-            <h1 className="font-serif italic font-light text-4xl sm:text-5xl md:text-6.5xl lg:text-7xl text-[#f5efe6] tracking-tight leading-[1.08]">
+            <h1 className="font-serif italic font-light text-4xl sm:text-5xl md:text-[4rem] lg:text-7xl text-[#f5efe6] tracking-tight leading-[1.08]">
               Specialty Coffee, <br />
               <span className="text-[#D8A15D]">Artisanal Sourdough</span> <span className="font-sans font-extralight text-beige/50">&amp;</span> Slow-Living.
             </h1>

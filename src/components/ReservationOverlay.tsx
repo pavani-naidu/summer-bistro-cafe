@@ -14,9 +14,9 @@ export default function ReservationOverlay({ isOpen, onClose }: ReservationOverl
   const [formData, setFormData] = useState<ReservationForm>({
     tone: "❤️ Date Night",
     name: "",
-    gmail: "",
+    email: "",
     phone: "",
-    date: "2026-05-21",
+    date: new Date().toISOString().split('T')[0],
     time: "09:00 PM (Candle Lit)",
     guests: "2",
   });
@@ -39,7 +39,7 @@ export default function ReservationOverlay({ isOpen, onClose }: ReservationOverl
 
   const handleSubmit = (e: FormEvent) => {
     e.preventDefault();
-    if (!formData.name || !formData.gmail || !formData.phone || !formData.date) {
+    if (!formData.name || !formData.email || !formData.phone || !formData.date) {
       alert("Please complete all sections to secure your booth.");
       return;
     }
@@ -59,9 +59,9 @@ export default function ReservationOverlay({ isOpen, onClose }: ReservationOverl
     setFormData({
       tone: "❤️ Date Night",
       name: "",
-      gmail: "",
+      email: "",
       phone: "",
-      date: "2026-05-21",
+      date: new Date().toISOString().split('T')[0],
       time: "09:00 PM (Candle Lit)",
       guests: "2",
     });
@@ -81,6 +81,10 @@ export default function ReservationOverlay({ isOpen, onClose }: ReservationOverl
   const guestOptions = ["1", "2", "3", "4", "5", "6", "7", "8+"];
 
   const timeOptions = [
+    "11:00 AM (Bright Brunch)",
+    "01:00 PM (Afternoon Calm)",
+    "04:00 PM (Golden Hour)",
+    "07:00 PM (Sunset Glow)",
     "09:00 PM (Candle Lit)",
     "10:00 PM (Mellow Jazz)",
     "11:00 PM (Acoustic Vinyl)",
@@ -239,16 +243,16 @@ export default function ReservationOverlay({ isOpen, onClose }: ReservationOverl
                   {/* Gmail field */}
                   <div className="border border-gold/15 focus-within:border-gold rounded-xl px-4 py-2.5 bg-[#181310]/80 transition-all duration-300 text-left">
                     <label className="block text-[8px] uppercase tracking-[0.2em] text-[#D8A15D] font-mono font-bold leading-none mb-1">
-                      Digital Coordinates (Gmail)
+                      Digital Coordinates (Email)
                     </label>
                     <div className="flex items-center gap-2 mt-0.5">
                       <Mail className="w-3.5 h-3.5 text-gold/60 shrink-0" />
                       <input
                         type="email"
-                        name="gmail"
+                        name="email"
                         required
-                        placeholder="e.g. priya@gmail.com"
-                        value={formData.gmail}
+                        placeholder="e.g. priya@email.com"
+                        value={formData.email}
                         onChange={handleInputChange}
                         className="w-full bg-transparent text-beige placeholder-muted-beige/30 outline-none text-xs sm:text-sm font-sans"
                       />
@@ -429,7 +433,7 @@ export default function ReservationOverlay({ isOpen, onClose }: ReservationOverl
                   
                   <div>
                     <p className="text-muted-beige/45 text-[7px] uppercase tracking-widest font-bold">DIGITAL PASS</p>
-                    <p className="text-beige text-[10px] tracking-wide truncate mt-0.5">{formData.gmail}</p>
+                    <p className="text-beige text-[10px] tracking-wide truncate mt-0.5">{formData.email}</p>
                   </div>
                   <div>
                     <p className="text-muted-beige/45 text-[7px] uppercase tracking-widest font-bold">DIRECT CONNECTION</p>
@@ -488,7 +492,7 @@ export default function ReservationOverlay({ isOpen, onClose }: ReservationOverl
                 </div>
                 <div className="flex gap-2 items-start">
                   <span className="text-gold mt-0.5">•</span>
-                  <span>booths are held strictly for a grace period of 15 minutes. bookings are non-transferable.</span>
+                  <span>Booths are held strictly for a grace period of 15 minutes. Bookings are non-transferable.</span>
                 </div>
               </div>
 

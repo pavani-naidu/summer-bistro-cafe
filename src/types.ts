@@ -10,7 +10,7 @@ export interface MenuItem {
 export interface ReservationForm {
   tone: string;
   name: string;
-  gmail: string;
+  email: string;
   phone: string;
   date: string;
   time: string;
@@ -57,7 +57,7 @@ export const menuItems: MenuItem[] = [
     name: "Orange Espresso",
     price: "₹280",
     category: "Coffee",
-    ingredients: "Single-origin hand-blown double espresso shot layered delicately over chilled raw Valencia orange juice nectar, finished with a fresh aromatic rosemary torch.",
+    ingredients: "Single-origin hand-pulled double espresso shot layered delicately over chilled raw Valencia orange juice nectar, finished with a fresh aromatic rosemary torch.",
     tags: ["Citrus Note", "Cold Brew Fusion", "Vibrant & Bold"],
     imageUrl: "https://images.unsplash.com/photo-1513558161293-cdaf765ed2fd?auto=format&fit=crop&q=80&w=800"
   },
@@ -88,7 +88,7 @@ export const menuItems: MenuItem[] = [
     imageUrl: "https://images.unsplash.com/photo-1533089860892-a7c6f0a88666?auto=format&fit=crop&q=80&w=800"
   },
   {
-    name: "Omlette",
+    name: "Omelette",
     price: "₹220",
     category: "Breakfast",
     ingredients: "Classic fluffy three-egg omelette frothed with fresh dynamic herbs, served with a side of microgreens and toasted sourdough.",
@@ -328,10 +328,10 @@ export const menuItems: MenuItem[] = [
     imageUrl: "https://images.unsplash.com/photo-1571877227200-a0d98ea607e9?auto=format&fit=crop&q=80&w=800"
   },
   {
-    name: "Creme Brulee 3 Ways",
+    name: "Crème Brûlée 3 Ways",
     price: "₹525",
     category: "Dessert",
-    ingredients: "Silky smooth custard base topped with a textually contrasting layer of hardened caramelized sugar, in three flavors.",
+    ingredients: "Silky smooth custard base topped with a texturally contrasting layer of hardened caramelized sugar, in three flavors.",
     tags: ["Caramelized", "Smooth Custard"],
     imageUrl: "https://images.unsplash.com/photo-1516685018646-549198525c1b?auto=format&fit=crop&q=80&w=800"
   },
@@ -359,14 +359,7 @@ export const menuItems: MenuItem[] = [
     tags: ["Baked Classic", "Cream Cheese Heavy"],
     imageUrl: "https://images.unsplash.com/photo-1533134242443-d4fd215305ad?auto=format&fit=crop&q=80&w=800"
   },
-  {
-    name: "Tiramisu",
-    price: "₹225",
-    category: "Dessert",
-    ingredients: "Elegant espresso-soaked Italian dessert layered with whipped mascarpone cream.",
-    tags: ["Coffee Classic", "Bite-Sized Dessert"],
-    imageUrl: "https://images.unsplash.com/photo-1571877227200-a0d98ea607e9?auto=format&fit=crop&q=80&w=800"
-  },
+
 
   // --- BOBA MIXES ---
   {
@@ -417,7 +410,7 @@ export const menuItems: MenuItem[] = [
     category: "Coffee",
     ingredients: "Double shot of rich espresso diluted with hot water for a distinct smooth black coffee profile.",
     tags: ["Black Coffee", "Bold"],
-    imageUrl: "https://images.unsplash.com/photo-1507133750040-4a8f57021571?auto=format&fit=crop&q=80&w=800"
+    imageUrl: "https://images.unsplash.com/photo-1514432324607-a09d9b4aefda?auto=format&fit=crop&q=80&w=800"
   },
   {
     name: "Espresso Macchiato",
@@ -446,7 +439,7 @@ export const menuItems: MenuItem[] = [
   {
     name: "Hot Chocolate",
     price: "₹250",
-    category: "Coffee",
+    category: "Dessert",
     ingredients: "Warm Belgian chocolate melted into creamy steamed milk, topped with mini marshmallows.",
     tags: ["Sweet Warmth", "Belgian Chocolate"],
     imageUrl: "https://images.unsplash.com/photo-1542990253-0d0f5be5f0ed?auto=format&fit=crop&q=80&w=800"
